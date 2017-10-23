@@ -1,73 +1,60 @@
-![cf](https://i.imgur.com/7v5ASc8.png) lab 13 two resource express api
-======
+![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) 13: ORM / Single Resource Mongo and Express API
+===
 
-# To Submit this Assignment
-  * fork this repository
-  * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
+## Submission Instructions
+  * fork this repository & create a new branch for your work
+  * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
   * push to your repository
   * submit a pull request to this repository
   * submit a link to your PR in canvas
   * write a question and observation on canvas
 
-# Build Tool Instructions
-* create a package.json that lists all dependencies and developer dependencies
-* include a .env and .test.env
-* include an .eslintrc
-* include a .gitignore
-* include a readme with a project description
-  * how to install
-  * how to start the server
-  * document the routes
-* include a package.json 
-  * have a lint script for running eslint
-  * have a test script for running mocha
-  * start script for running your server
-  * have a start-db script for running mongod
-  * have a stop-db script for stoping mongod
+## Learning Objectives  
+* students will be able to work with the MongoDB database management system
+* students will understand the primary concepts of working with a NoSQL database management system
+* students will be able to create custom data models *(schemas)* through the use of mongoose.js
+* students will be able to use mongoose.js helper methods for interacting with their database persistence layer
 
-# Directions
-* Create these directories to organize your code:
- * lib
- * model
- * route
- * db 
- * test
-* Create a HTTP Server using `express`
-* Come up with two models that have a one to many relationship 
-  
-* using mongoose create the first resource in the one to many relationship
- * it can not have the same properties as the in class sample code, or yesterdays lab
- * make sure you include at least one propertie with the `unique` validator set to true
- * Also include two other properties of your choice (like name, creationDate, etc.)
-* use the `body-parser` express middleware to on `POST` and `PUT` routes
+## Requirements
+#### Configuration
+* `package.json`
+* `.eslintrc`
+* `.gitignore`
+* `README.md`
+  * your `README.md` should include detailed instructions on how to use your API
+
+#### Feature Tasks
+* create an HTTP Server using `express`
+* create a resource **model** of your choice that uses `mongoose.Schema` and `mongoose.model`
+* use the `body-parser` express middleware to parse the `req` body on `POST` and `PUT` requests
+* use the npm `debug` module to log the functions and methods that are being used in your application
+* use the express `Router` to create a route for doing **RESTFUL CRUD** operations against your _model_
 
 ## Server Endpoints
 ### `/api/resource-name`
 * `POST` request
- * pass data as stringified json in the body of a post request to create a resource
+  * should pass data as stringifed JSON in the body of a post request to create a new resource
 
 ### `/api/resource-name/:id`
 * `GET` request
- * pass the id of a resource though the query string to fetch a resource   
+  * should pass the id of a resource through the url endpoint to get a resource
+    * **this should use `req.params`, not querystring parameters**
 * `PUT` request
- * pass data as stringified json in the body of a put request to update a resource
+  * should pass data as stringifed JSON in the body of a put request to update a pre-existing resource
 * `DELETE` request
- * pass the id of a resource though the query string to delete a resource   
+  * should pass the id of a resource though the url endpoint to delete a resource
+    * **this should use `req.params`**
 
-## Tests
-* your tests should start your server when they begin and stop your server when they finish
-* write a test to ensure that your api returns a status code of 404 for routes that have not been registered
-* write tests to ensure your `/api/resource-name` endpoint responds as described for each condition below:
- * `GET` - test 404, responds with 'not found' for valid request made with an id that was not found
- * `GET` - test 200, response body like `{<data>}` for a request made with a valid id
- * `PUT` - test 200, response body like  `{<data>}` for a post request with a valid body
- * `PUT` - test 400, with invalid body
- * `PUT` - test 404, with invalid id
- * `DELETE` - test 204, with valid id
- * `DELETE` - test 404, with invalid id 
- * `POST` - test 200, response body like  `{<data>}` for a post request with a valid body
- * `POST` - test 400, with an invalid request body
- * `POST` - test 409, with an a conflict for a unique property
- 
- # Bonus 2pts 
-* create a `GET /api/resource` route that has pagination using query strings
+### Tests
+* create a test that will ensure that your API returns a status code of 404 for routes that have not been registered
+* create a series of tests to ensure that your `/api/resource-name` endpoint responds as described for each condition below:
+  * `GET` - test 200, returns a resource with a valid body
+ * `GET` - test 404, respond with 'not found' for valid requests made with an id that was not found
+ * `PUT` - test 200, returns a resource with an updated body
+ * `PUT` - test 400, responds with 'bad request' if no request body was provided
+ * `PUT` - test 404, responds with 'not found' for valid requests made with an id that was not found
+ * `POST` - test 400, responds with 'bad request' if no request body was provided
+ * `POST` - test 200, returns a resource for requests made with a valid body
+
+### Bonus
+* **2pts:** a `GET` request to `/api/resource-name` should return an array of stored resources
