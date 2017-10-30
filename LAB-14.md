@@ -5,7 +5,7 @@
 Continue working from lab 13, and submit a link to a pull request on canvas
 
 ## Directions
-* Create your second model and add the folling routes and tests
+* Create your second model and add the following routes and tests
 
 ## Server Endpoints
 ### `/api/resource-name`
@@ -30,7 +30,7 @@ Continue working from lab 13, and submit a link to a pull request on canvas
  * `PUT` - test 400, with invalid body
  * `PUT` - test 404, with invalid id
  * `DELETE` - test 204, with valid id
- * `DELETE` - test 404, with invalid id 
+ * `DELETE` - test 404, with invalid id
  * `POST` - test 200, response body like  `{<data>}` for a post request with a valid body
  * `POST` - test 400, with an invalid request body
  * `POST` - test 409, with an a conflict for a unique property
