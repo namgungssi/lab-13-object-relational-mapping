@@ -22,7 +22,7 @@
   },
   "directories": {
     "lib": "lib",
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
