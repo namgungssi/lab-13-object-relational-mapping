@@ -20,8 +20,8 @@ ownerRouter.get('/owners', (req, res, next) => {
 
 ownerRouter.get('/owners/:id', (req,res, next) => {
   Owner.findOne({_id : req.params.id})
-    .then(owner => res.send(owner))
-    .catch(err => next({statusCode: 404, message: 'owner id', error: err}));
+  .then(owner => res.send(owner))
+  .catch(err => next({statusCode: 404, message: 'owner id', error: err}));
 });
 
 
@@ -30,8 +30,8 @@ ownerRouter.post('/owners', jsonParser, (req, res, next) =>{
   let newOwner = new Owner(req.body);
   console.log(newOwner);
   newOwner.save()
-    .then(data => res.send(data))
-    .catch(err => next({statusCode: 500, message: 'error creating owner', error: err}));
+  .then(data => res.send(data))
+  .catch(err => next({statusCode: 500, message: 'error creating owner', error: err}));
 });
 
 
@@ -39,8 +39,8 @@ ownerRouter.post('/owners', jsonParser, (req, res, next) =>{
 ownerRouter.put('/owners/:id', jsonParser, (req, res, next) => {
   delete req.body._id;
   Owner.findOneAndUpdate({_id: req.params.id}, req.body)
-    .then(data => res.send('success'))
-    .catch(err => next({error: error}));
+  .then(data => res.send('success'))
+  .catch(err => next({error: error}));
 });
 
 
@@ -48,14 +48,14 @@ ownerRouter.put('/owners/:id', jsonParser, (req, res, next) => {
 ownerRouter.patch('/owners/:id', jsonParser, (req, res, next) => {
   delete req.body._id;
   Owner.findOneAndUpdate({_id: req.params.id}, {$set: req.body})
-    .then(data => res.send('success'))
-    .catch(err => next({error: err}));
+  .then(data => res.send('success'))
+  .catch(err => next({error: err}));
 });
 
 
 
 ownerRouter.delete('/owners/:id', (req, res, next) => {
   Owner.remove({_id: req.params.id})
-    .then(data => res.send('bye owner'))
-    .catch(err => next({error: err}));
+  .then(data => res.send('bye owner'))
+  .catch(err => next({error: err}));
 });
