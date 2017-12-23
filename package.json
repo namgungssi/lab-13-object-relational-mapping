@@ -1,14 +1,24 @@
 {
   "name": "lab-13-object-relational-mapping",
   "version": "1.0.0",
-  "description": "![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) 13: ORM / Single Resource Mongo and Express API ===",
-  "main": "server.js",
+  "description": "* npm test (jest)",
+  "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
+  "dependencies": {
+    "async": "^2.6.0",
+    "bluebird": "^3.5.1",
+    "express": "^4.16.2",
+    "jest": "^22.0.4",
+    "mongodb": "^3.0.0-rc0",
+    "mongoose": "^4.13.7",
+    "superagent": "^3.8.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "jest",
-    "start": "node server.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,13 +32,5 @@
   "bugs": {
     "url": "https://github.com/namgungssi/lab-13-object-relational-mapping/issues"
   },
-  "homepage": "https://github.com/namgungssi/lab-13-object-relational-mapping#readme",
-  "dependencies": {
-    "bluebird": "^3.5.1",
-    "express": "^4.16.2",
-    "jest": "^22.0.4",
-    "mongodb": "^3.0.0-rc0",
-    "mongoose": "^4.13.7"
-  },
-  "devDependencies": {}
+  "homepage": "https://github.com/namgungssi/lab-13-object-relational-mapping#readme"
 }

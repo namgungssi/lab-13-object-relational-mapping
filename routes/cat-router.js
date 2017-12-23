@@ -21,7 +21,7 @@ dogRouter.get('/dogs', (req, res, next) => {
 dogRouter.get('/dogs/:id', (req, res, next) => {
   Dog.findOne({_id : req.params.id})
   .then(dog => res.send(dog))
-  .catch(err -> next({statusCode: 404, message: 'dog id', error: err}));
+  .catch(err => next({statusCode: 404, message: 'dog id', error: err}));
 });
 
 

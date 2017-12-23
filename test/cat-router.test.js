@@ -65,14 +65,12 @@ test('it should get single dog', () => {
     });
   });
 });
-});
 
 
 
 describe('PATCH functionality', () => {
   test('it should update patch', () => {
-    return (new Dog({name: 'testpatch'}))
-    .save()
+    return (new Dog({name: 'testpatch'})).save()
     .then(dog => {
       return request
       .put('localhost:5000/api/v1/dogs/' + dog._id)
@@ -88,8 +86,7 @@ describe('PATCH functionality', () => {
 
 describe('PATCH functionality', () => {
   test('it should remove dog', () => {
-    return (new Dog({name: 'sorrydog'}))
-    .save()
+    return (new Dog({name: 'sorrydog'})).save()
     .then(dog => {
       return request
       .delete('localhost:5000/api/v1/dogs/' + dog._id)
