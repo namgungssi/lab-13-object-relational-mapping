@@ -21,7 +21,7 @@ dogRouter.get('/dogs', (req, res, next) => {
 dogRouter.get('/dogs/:id', (req, res, next) => {
   Dog.findOne({_id : req.params.id})
   .then(dog => res.send(dog))
-  .catch(err -> next({statusCode: 404, message: 'This dog id isnt', error: err}));
+  .catch(err -> next({statusCode: 404, message: 'dog id', error: err}));
 });
 
 
@@ -55,6 +55,6 @@ dogRouter.patch('/dogs/:id', jsonParser, (req, res, next) => {
 
 dogRouter.delete('/dogs/:id', (req, res, next) => {
   Dog.remove({_id: req.params.id})
-  .then(data => res.send('bye bye dog'))
+  .then(data => res.send('bye dog'))
   .catch(err => next({error: err}));
 });
