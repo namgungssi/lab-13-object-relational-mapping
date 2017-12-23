@@ -1,36 +1,21 @@
 {
-  "name": "lab-13-object-relational-mapping",
+  "name": "lab-brian",
   "version": "1.0.0",
-  "description": "* npm test (jest)",
+  "description": "",
   "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "dependencies": {
-    "async": "^2.6.0",
-    "bluebird": "^3.5.1",
-    "express": "^4.16.2",
-    "jest": "^22.0.4",
-    "mongodb": "^3.0.0-rc0",
-    "mongoose": "^4.13.7",
-    "superagent": "^3.8.2"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/namgungssi/lab-13-object-relational-mapping.git"
-  },
-  "keywords": [
-    "[]"
-  ],
-  "author": "brian namgung",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/namgungssi/lab-13-object-relational-mapping/issues"
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
   },
-  "homepage": "https://github.com/namgungssi/lab-13-object-relational-mapping#readme"
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "superagent": "^3.8.1"
+  }
 }
