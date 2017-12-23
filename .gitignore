@@ -1,9 +1,7 @@
 # Created by https://www.gitignore.io/api/osx,linux,node,vim
 
-db
-build
-*.env
-.*.env
+db/
+build/
 
 ### OSX ###
 .DS_Store
