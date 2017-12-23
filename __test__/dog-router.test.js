@@ -47,5 +47,55 @@ describe('POST functionality', () => {
 
 
 describe('GET functionality', () => {
-  test('it should ')
-})
+  test('it should get dog array')
+  .then(res => {
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+});
+
+
+
+test('it should get single dog', () => {
+  (new Dog({name: 'pebbles'})).save()
+  .then((dog) => {
+    return request
+    .get('localhost:5000/api/v1/dogs/' + dog._id)
+    .then(res => {
+      expect(res.body.name).toBe('pebbles');
+    });
+  });
+});
+});
+
+
+
+describe('PATCH functionality', () => {
+  test('it should update patch', () => {
+    return (new Dog({name: 'testpatch'}))
+    .save()
+    .then(dog => {
+      return request
+      .put('localhost:5000/api/v1/dogs/' + dog._id)
+      .send({name: 'newpatch'})
+      .then(res => {
+        expect(res.text).toBe('success');
+      });
+    });
+  });
+});
+
+
+
+describe('PATCH functionality', () => {
+  test('it should remove dog', () => {
+    return (new Dog({name: 'sorrydog'}))
+    .save()
+    .then(dog => {
+      return request
+      .delete('localhost:5000/api/v1/dogs/' + dog._id)
+      .then(res => {
+        expect(res.text).toBe('bye dog');
+      });
+    });
+  });
+});
