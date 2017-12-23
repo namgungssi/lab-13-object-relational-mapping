@@ -1,44 +1,38 @@
-'use strict';
-
-
-
 const mongoose = require('mongoose');
-const Dog = require('./dog.js');
+const Cat = require('./cat.js');
 const ownerSchema = new mongoose.Schema({
   name: {type: String, required: true, unique: true},
-  dogName: {type: String},
-  dog: {type: mongoose.Schema.Types.ObjectId, ref: 'Dog'},
+  // job: {type: String, required: true},
+  // cat: [{type: mongoose.Schema.Types.ObjectId, ref: 'Cat'}],z
+  catName: {type: String},
+  cat: {type: mongoose.Schema.Types.ObjectId, ref: 'Cat'},
   birthday: {type: Date, default: Date.now},
 });
 
+ownerSchema.pre('save', function(done){
+// console.log(this);
+  Cat.find({name: this.catName})
 
+  .then( cats => {
+    let cat = cats[0];
 
-ownerSchema.pre('save', function(done) {
-  Dog.find({name: this.dogName})
-
-  .then(dogs => {
-    let dog = dogs[0];
-
-    if(! dog._id) {
-      throw new Error('owner error');
+    if( ! cat._id){
+      throw new Error ('no owner');
     }
-    this.dog = dog._id;
+    this.cat = cat._id ;
     done();
   })
   .then( () => done())
-  .catch(err => {console.log('this is err' + err);
-  done();
-});
+  .catch(err => {console.log('this is our err' + err);
+    done();
+  });
 });
 
-
-ownerSchema.pre('findOne', function(done) {
+ownerSchema.pre('findOne', function(done){
   this.populate({
-    path: 'dogs',
+    path:'cats',
   });
   done();
 });
-
-
 
 module.exports = mongoose.model('Owner', ownerSchema);
