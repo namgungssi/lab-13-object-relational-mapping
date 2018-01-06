@@ -8,9 +8,11 @@ const mongoose = require('mongoose');
 
 const dogSchema = new mongoose.Schema({
   name: {type: String, required: true, unique: true},
-  birthday: {type: Date, default: Date.now},
-  favoriteFood: {type: String, default: 'pedigree'},
-  owner: [{type: mongoose.Schema.Types.ObjectId, ref: 'Owner'}],
+  favoriteFood: {type: String, default: 'steak'},
+  dateCreated: {type: Date, default: Date.now},
 
 });
-module.exports = mongoose.model('Dog', dogSchema);
+
+
+
+const Dog = module.exports = mongoose.model('Dog', dogSchema);
