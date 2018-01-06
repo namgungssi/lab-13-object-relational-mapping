@@ -18,7 +18,6 @@
     "server": "^1.0.12"
   },
   "devDependencies": {
-    "jasmine": "^2.8.0",
     "jest": "^21.2.1",
     "nodemon": "^1.14.8",
     "superagent": "^3.8.1"
