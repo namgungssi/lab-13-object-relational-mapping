@@ -3,28 +3,31 @@
 
 
 const mongoose = require('mongoose');
-const dog = require('./dog.js');
+const Dog = require('./dog.js');
 const ownerSchema = new mongoose.Schema({
   name: {type: String, required: true, unique: true},
   dogName: {type: String},
-  dog: {type: mongoose.Schema.Types.ObjectId, ref: 'dog'},
+  dog: {type: mongoose.Schema.Types.ObjectId, ref: 'Dog'},
   birthday: {type: Date, default: Date.now},
 });
 
 
 ownerSchema.pre('save', function(done){
-  dog.find({name: this.dogName}).then( dogs => {
-    let dog = dogs[0];
+  Dog.find({name: this.dogName})
+    .then(dogs => {
+      let dog = dogs[0];
 
-    if( ! dog._id){
-      throw new Error ('no owner');
-    }
+      if(! dog._id){
+        throw new Error ('missing owner');
+      }
 
-    this.dog = dog._id;
-    done();
-  }).then( () => done()).catch(err => {console.log('error' + err);
-    done();
-  });
+      this.dog = dog._id;
+      done();
+    })
+    .then( () => done())
+    .catch(err => {console.log('error' + err);
+      done();
+    });
 });
 
 
