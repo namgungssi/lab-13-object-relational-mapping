@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "brian namgung",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.1",
@@ -20,11 +20,12 @@
   "devDependencies": {
     "jasmine": "^2.8.0",
     "jest": "^21.2.1",
+    "nodemon": "^1.14.8",
     "superagent": "^3.8.1"
   },
   "directories": {
     "lib": "lib",
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
