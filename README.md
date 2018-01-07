@@ -1,6 +1,7 @@
 ## Test
 * npm test (jest)
 
+Mongoose schema : pizza. To start, call the command mongod --dbpath=./db then open up another terminal and call mongo. 
 
 #### Feature Tasks
 * create an HTTP Server using `express`
@@ -23,17 +24,6 @@
 * `DELETE` request
   * should pass the id of a resource though the url endpoint to delete a resource
     * **this should use `req.params`**
-
-### Tests
-* create a test that will ensure that your API returns a status code of 404 for routes that have not been registered
-* create a series of tests to ensure that your `/api/resource-name` endpoint responds as described for each condition below:
-  * `GET` - test 200, returns a resource with a valid body
- * `GET` - test 404, respond with 'not found' for valid requests made with an id that was not found
- * `PUT` - test 200, returns a resource with an updated body
- * `PUT` - test 400, responds with 'bad request' if no request body was provided
- * `PUT` - test 404, responds with 'not found' for valid requests made with an id that was not found
- * `POST` - test 400, responds with 'bad request' if no request body was provided
- * `POST` - test 200, returns a resource for requests made with a valid body
 
 ### Bonus
 * **2pts:** a `GET` request to `/api/resource-name` should return an array of stored resources
