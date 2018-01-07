@@ -46,6 +46,6 @@ pizzaRouter.put('/pizza/:id', bodyParser, (req,res,next) => {
 
 pizzaRouter.delete('/pizza/:id', (req,res,next) => {
   Pizza.remove({_id: req.params.id})
-    .then(data => res.send({statusCode: 200, message: 'pizza deleted'}))
+    .then(data => res.send({statusCode: 200, message: 'item deleted'}))
     .catch(err => next({statusCode: 400, error:err}));
 });
