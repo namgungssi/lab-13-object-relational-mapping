@@ -12,7 +12,7 @@ const pizzaRouter = module.exports = express.Router();
 pizzaRouter.get('/pizza', (req,res,next) => {
   let findObj = req.query || {};
   Pizza.find(findObj)
-    .then( pizza => res.send({statusCode:200, message: pizza}))
+    .then(pizza => res.send({statusCode:200, message: pizza}))
     .catch(err => next({error:err}));
 });
 
@@ -20,7 +20,7 @@ pizzaRouter.get('/pizza', (req,res,next) => {
 
 pizzaRouter.get('/pizza/:id', (req,res,next) => {
   Pizza.findOne({_id: req.params.id})
-    .then( pizza => res.send(pizza))
+    .then(pizza => res.send(pizza))
     .catch(err => next({statusCode: 404}));
 });
 
@@ -29,7 +29,7 @@ pizzaRouter.get('/pizza/:id', (req,res,next) => {
 pizzaRouter.post('/pizza', bodyParser, (req,res,next) => {
   let newNewPizza = new Pizza(req.body);
   newNewPizza.save()
-    .then( data => res.send(data))
+    .then(data => res.send(data))
     .catch(err => next({statusCode: 400, message: 'error creating pizza', error:err}));
 });
 

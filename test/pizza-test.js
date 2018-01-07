@@ -4,10 +4,10 @@
 
 const expect = require('expect');
 const superagent = require('superagent');
+const mongoose = require('mongoose');
 const mocha = require('mocha');
 const server = require('../index.js');
 process.env.MONGODB_URL || 'mongodb://localhost:27017/pizza';
-const mongoose = require('mongoose');
 const Pizza = require('../models/pizza.js');
 
 
@@ -26,6 +26,8 @@ describe('get routes', () => {
       });
   });
 });
+
+
 
 describe('put routes', () => {
   it('should return a 200 with an updated id', () => {
