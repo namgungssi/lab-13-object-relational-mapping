@@ -1,8 +1,8 @@
 ## Test
 * npm test (mocha)
 
-Mongoose schema : pizza
-To start, call the command mongod --dbpath=./db 
+Mongoose schema : pizza & beer (14)
+To start, call the command mongod --dbpath=./db
 
 #### Feature Tasks
 * create an HTTP Server using `express`
