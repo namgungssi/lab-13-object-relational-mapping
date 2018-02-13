@@ -1,30 +1,11 @@
-## Test
-* npm test (mocha)
+# GET /api/1.0/pizza/ Returns all
 
-Mongoose schema : pizza
-To start, call the command mongod --dbpath=./db 
+# POST /api/1.0/pizza/ Returns resource for valid body-parser
 
-#### Feature Tasks
-* create an HTTP Server using `express`
-* create a resource **model** of your choice that uses `mongoose.Schema` and `mongoose.model`
-* use the `body-parser` express middleware to parse the `req` body on `POST` and `PUT` requests
-* use the npm `debug` module to log the functions and methods that are being used in your application
-* use the express `Router` to create a route for doing **RESTFUL CRUD** operations against your _model_
+# PUT /api/1.0/pizza/ Returns a 200 with success message if valid id is provided.
 
-## Server Endpoints
-### `/api/resource-name`
-* `POST` request
-  * should pass data as stringifed JSON in the body of a post request to create a new resource
+# PATCH /api/1.0/pizza/ Returns a 200 with success message if valid id is provided.
 
-### `/api/resource-name/:id`
-* `GET` request
-  * should pass the id of a resource through the url endpoint to get a resource
-    * **this should use `req.params`, not querystring parameters**
-* `PUT` request
-  * should pass data as stringifed JSON in the body of a put request to update a pre-existing resource
-* `DELETE` request
-  * should pass the id of a resource though the url endpoint to delete a resource
-    * **this should use `req.params`**
+# DELETE /api/1.0/pizza/ Deletes costume if provided ID is a matches
 
-### Bonus
-* **2pts:** a `GET` request to `/api/resource-name` should return an array of stored resources
+# test use npm test to run

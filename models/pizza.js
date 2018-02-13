@@ -3,13 +3,11 @@
 
 
 const mongoose = require('mongoose');
-
-
-
 const pizzaSchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  topping: {type: String, default: 'cheese'},
-  price: {type: Number, min: 10},
+  name: {type: String, required: true, unique: true},
+  profile: String,
+  parts: {type: Array},
+  createDate: {type: Date, default: Date.now},
 });
 
 

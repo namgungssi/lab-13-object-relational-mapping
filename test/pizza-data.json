@@ -1,0 +1,10 @@
+{
+  "name": "sausage",
+  "parts": [
+    "cheese",
+    "sauce",
+    "dough",
+    "sausage",
+  ],
+  "profile": "sausage"
+}
